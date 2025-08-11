@@ -1,0 +1,52 @@
+type Creator {
+	id: ID!
+	name: String
+	subscribers: Int
+	videos: [Video]
+}
+
+type Video {
+	url: String!
+	creator: Creator
+}
+
+type Query {
+	videos: [Video]
+	creator(id: String!): Creator
+}
+
+# Some of my examples
+
+type Programmer {
+	id: ID!
+	name: String!
+	email: String
+	phone_number: String
+	years_of_experience: Int
+	languages: [Language]
+}
+
+type Language {
+	id: ID!
+	name: String!
+	hardness: Int
+	years_old: Int
+}
+
+# Query examples
+
+query {
+  continents{
+    name
+  }
+}
+
+query {
+  continents{
+    name
+    countries {
+      capital
+      currency
+    }
+  }
+}
